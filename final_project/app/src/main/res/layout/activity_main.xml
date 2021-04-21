@@ -18,8 +18,8 @@
             android:id="@+id/tvTime"
             android:layout_width='wrap_content'
             android:layout_height='wrap_content'
-            android:text='我是時間la OvO'
-            android:textSize='30dp'
+            android:text='01:00'
+            android:textSize='60dp'
             android:layout_gravity="center" />
     </LinearLayout>
 
@@ -33,13 +33,53 @@
 
     <LinearLayout
         android:id='@+id/bottomView'
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:background="#bbffbb"
         android:layout_alignParentBottom="true"
         android:layout_weight="3"
         >
+        <!--透明底-->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight='1'>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight='1'
+            android:background="#aaccaa">
+            <Button
+                android:id="@+id/butCenter"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:background='#00000000'
+                android:layout_centerInParent="true"/>
+            <Button
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/butCenter"/>
+            <Button
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/butCenter"/>
+            <Button
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/butCenter"/>
+            <Button
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/butCenter"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
 
