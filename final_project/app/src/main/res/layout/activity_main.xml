@@ -7,20 +7,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+<!--    比例 layout_height-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_weight="1"
+        android:background="#ddddff"
         android:gravity="center_vertical"
-        android:background="#ddddff">
+        android:orientation="vertical">
+        <!--        clock, start, 分秒分開, 比例-->
         <TextView
             android:id="@+id/tvTime"
             android:layout_width='wrap_content'
             android:layout_height='wrap_content'
+            android:layout_gravity="center"
             android:text='01:00'
-            android:textSize='60dp'
-            android:layout_gravity="center" />
+            android:textSize='60dp' />
     </LinearLayout>
 
     <TableLayout
@@ -28,8 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
-        android:background="#bbddff">
-    </TableLayout>
+        android:background="#bbddff"></TableLayout>
 
     <LinearLayout
         android:id='@+id/bottomView'
@@ -41,12 +43,14 @@
         android:layout_weight="3"
         >
         <!--透明底-->
+<!--        imageView, textView-->
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight='1'>
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
