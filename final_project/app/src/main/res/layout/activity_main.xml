@@ -22,8 +22,8 @@
             android:layout_width='wrap_content'
             android:layout_height='wrap_content'
             android:layout_gravity="center"
-            android:text='00'
-            android:textSize='60dp' />
+            android:text='60'
+            android:textSize='50dp' />
     </LinearLayout>
 
     <TableLayout
@@ -44,15 +44,18 @@
         >
         <!--透明底-->
 <!--        imageView, textView-->
+
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight='1'>
             <Button
-                android:id="@+id/btStart"
-                android:layout_width="150px"
-                android:layout_height="150px"
-                android:layout_centerInParent="true"/>
+                android:id="@+id/buttonStart"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="開始"
+                android:textSize="25dp"
+                ></Button>
 
         </RelativeLayout>
 
