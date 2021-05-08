@@ -53,7 +53,7 @@
                 android:id="@+id/buttonStart"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="開始"
+                android:text="START"
                 android:textSize="25dp"
                 ></Button>
 

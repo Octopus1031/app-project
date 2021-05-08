@@ -1,7 +1,6 @@
 package com.example.final_project;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,11 +16,15 @@ public class MainActivity extends AppCompatActivity {
 //Time
         btn1 = (Button) findViewById(R.id.buttonStart);
         text1 = findViewById(R.id.tvTime);
+        CountTime count = new CountTime(btn1, text1);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        CountTime count = new CountTime(btn1, text1);
+                        if(btn1.getText().equals("START"))
+                            count.start("easy");
+                        else
+                            count.end();
                     }
                 };
         btn1.setOnClickListener(buttonStartListener);
