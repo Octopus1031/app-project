@@ -22,7 +22,7 @@
             android:layout_width='wrap_content'
             android:layout_height='wrap_content'
             android:layout_gravity="center"
-            android:text='01:00'
+            android:text='00'
             android:textSize='60dp' />
     </LinearLayout>
 
@@ -48,6 +48,11 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight='1'>
+            <Button
+                android:id="@+id/btStart"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_centerInParent="true"/>
 
         </RelativeLayout>
 
