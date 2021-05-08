@@ -1,8 +1,9 @@
-package com.example.final_project;
+package com.example.testbutton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,9 +15,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//Time
         btn1 = (Button) findViewById(R.id.buttonStart);
-        text1 = findViewById(R.id.tvTime);
+        text1 = findViewById(R.id.view);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @Override
