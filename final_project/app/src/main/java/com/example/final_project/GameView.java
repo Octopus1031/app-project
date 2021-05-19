@@ -21,10 +21,10 @@ public class GameView extends View {
         Paint paint = new Paint();
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(3);
-        for(int i=0;i<=1020;i+=60){
-            canvas.drawLine(i,0,i,1020,paint);
-            canvas.drawLine(0,i,1020,i,paint);
+        paint.setStrokeWidth(1);
+        for(int i=0;i<=1000;i+=100){
+            canvas.drawLine(i,0, i, 1000, paint);
+            canvas.drawLine(0,i,1000, i, paint);
         }
     }
 }

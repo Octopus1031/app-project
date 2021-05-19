@@ -2,6 +2,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,12 +34,30 @@
         android:layout_height="0dp"
         android:layout_weight="6"
         android:background="#eeeeff">
-        <com.example.final_project.GameView
-            android:id='@+id/gameView'
-            android:layout_width='1020px'
-            android:layout_height='1020px'
-            android:layout_centerInParent="true"
-            />
+        <RelativeLayout
+            android:layout_width='1001px'
+            android:layout_height='1001px'
+            android:layout_centerInParent="true">
+
+            <com.example.final_project.GameView
+                android:id='@+id/gameView'
+                android:layout_width='match_parent'
+                android:layout_height='match_parent'
+                android:layout_centerInParent="true" />
+
+            <ImageView
+                android:id="@+id/tako"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="700px"
+                android:layout_marginLeft="700px"
+                android:layout_marginTop="700px"
+
+                app:srcCompat="@drawable/tako" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <LinearLayout
@@ -79,23 +98,31 @@
                 android:background='#00000000'
                 android:layout_centerInParent="true"/>
             <Button
+                android:id="@+id/butDown"
                 android:layout_width="150px"
                 android:layout_height="150px"
+                android:text='D'
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/butCenter"/>
             <Button
+                android:id="@+id/butUp"
                 android:layout_width="150px"
                 android:layout_height="150px"
+                android:text='U'
                 android:layout_centerHorizontal="true"
                 android:layout_above="@+id/butCenter"/>
             <Button
+                android:id="@+id/butLeft"
                 android:layout_width="150px"
                 android:layout_height="150px"
+                android:text='L'
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/butCenter"/>
             <Button
+                android:id="@+id/butRight"
                 android:layout_width="150px"
                 android:layout_height="150px"
+                android:text='R'
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/butCenter"/>
 
