@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         text1 = findViewById(R.id.tvTime);
         ImageView tako = findViewById(R.id.tako);
         CountTime count = new CountTime(btn1, text1);
-        CountTakoRun ctr = new CountTakoRun(Derection.Left, tako);
+        CountTakoRun ctr = new CountTakoRun(Derection.LEFT, tako);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @Override
