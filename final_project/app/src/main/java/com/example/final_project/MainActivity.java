@@ -1,10 +1,14 @@
 package com.example.final_project;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,13 +25,18 @@ public class MainActivity extends AppCompatActivity {
         ImageView tako = findViewById(R.id.tako);
         CountTime count = new CountTime(btn1, text1);
         CountTakoRun ctr = new CountTakoRun(Derection.LEFT, tako);
+        RelativeLayout rel = findViewById(R.id.gameRel);
+        Context context = getApplicationContext();
+        CountYaya yaya = new CountYaya(context, rel);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
+                    @SuppressLint("ResourceType")
                     @Override
                     public void onClick(View v) {
                         if(btn1.getText().equals("START")){
                             count.start("easy");
                             ctr.start();
+                            yaya.start();
                         }
                         else{
                             count.end();

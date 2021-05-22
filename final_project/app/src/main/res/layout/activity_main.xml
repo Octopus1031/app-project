@@ -35,6 +35,7 @@
         android:layout_weight="6"
         android:background="#eeeeff">
         <RelativeLayout
+            android:id='@+id/gameRel'
             android:layout_width='1001px'
             android:layout_height='1001px'
             android:layout_centerInParent="true">

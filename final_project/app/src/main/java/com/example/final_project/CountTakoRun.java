@@ -20,23 +20,23 @@ public class CountTakoRun {
                 switch(derection){
                     case UP:
                         tako.setY(tako.getY() - 100);
-                        if(tako.getY()<0)
-                            tako.setY(1000);
+                        if(tako.getY()<=-100)
+                            tako.setY(900);
                         break;
                     case DOWN:
                         tako.setY(tako.getY() + 100);
-                        if(tako.getY()>1000)
-                            tako.setY(-100);
+                        if(tako.getY()>=1000)
+                            tako.setY(0);
                         break;
                     case LEFT:
                         tako.setX(tako.getX() - 100);
-                        if(tako.getX()<0)
-                            tako.setX(1000);
+                        if(tako.getX()<=-100)
+                            tako.setX(900);
                         break;
                     case RIGHT:
                         tako.setX(tako.getX() + 100);
-                        if(tako.getX()>1000)
-                            tako.setX(-100);
+                        if(tako.getX()>=1000)
+                            tako.setX(0);
                         break;
                 }
             }
