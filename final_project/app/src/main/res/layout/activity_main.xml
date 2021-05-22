@@ -54,7 +54,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="700px"
                 android:layout_marginLeft="700px"
-                android:layout_marginTop="700px"
+                android:layout_marginTop="300px"
 
                 app:srcCompat="@drawable/tako" />
         </RelativeLayout>

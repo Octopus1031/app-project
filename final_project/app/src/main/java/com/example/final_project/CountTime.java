@@ -17,7 +17,7 @@ public class CountTime {
         btn.setText("END");
         switch(mode){
             case "easy":
-                time = 60000;
+                time = 10000;
                 break;
             case "normal":
                 time = 30000;

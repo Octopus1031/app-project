@@ -18,15 +18,21 @@ public class MainActivity extends AppCompatActivity {
 //Time
         btn1 = (Button) findViewById(R.id.buttonStart);
         text1 = findViewById(R.id.tvTime);
+        ImageView tako = findViewById(R.id.tako);
         CountTime count = new CountTime(btn1, text1);
+        CountTakoRun ctr = new CountTakoRun(Derection.Left, tako);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(btn1.getText().equals("START"))
+                        if(btn1.getText().equals("START")){
                             count.start("easy");
-                        else
+                            ctr.start();
+                        }
+                        else{
                             count.end();
+                            ctr.end();
+                        }
                     }
                 };
         btn1.setOnClickListener(buttonStartListener);
@@ -36,13 +42,9 @@ public class MainActivity extends AppCompatActivity {
         btnL = (Button)findViewById(R.id.butLeft);
         btnR = (Button)findViewById(R.id.butRight);
 
-        btnU.setOnClickListener(new Button.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Derection derection = Derection.UP;
-                ImageView tako = findViewById(R.id.tako);
-                tako.setY(tako.getY() - 100);
-            }
-        });
+        btnU.setOnClickListener(v -> ctr.derection = Derection.UP);
+        btnD.setOnClickListener(v -> ctr.derection = Derection.DOWN);
+        btnL.setOnClickListener(v -> ctr.derection = Derection.Left);
+        btnR.setOnClickListener(v -> ctr.derection = Derection.Right);
     }
 }
