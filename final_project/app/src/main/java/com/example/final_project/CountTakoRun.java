@@ -28,12 +28,12 @@ public class CountTakoRun {
                         if(tako.getY()>1000)
                             tako.setY(-100);
                         break;
-                    case Left:
+                    case LEFT:
                         tako.setX(tako.getX() - 100);
                         if(tako.getX()<0)
                             tako.setX(1000);
                         break;
-                    case Right:
+                    case RIGHT:
                         tako.setX(tako.getX() + 100);
                         if(tako.getX()>1000)
                             tako.setX(-100);

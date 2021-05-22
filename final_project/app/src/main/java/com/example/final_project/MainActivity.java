@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private Button btn1,btnU,btnD,btnL,btnR;
     private TextView text1;
-    public enum Derection {UP, DOWN, Left, Right};
+    public enum Derection {UP, DOWN, LEFT, RIGHT};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnU.setOnClickListener(v -> ctr.derection = Derection.UP);
         btnD.setOnClickListener(v -> ctr.derection = Derection.DOWN);
-        btnL.setOnClickListener(v -> ctr.derection = Derection.Left);
-        btnR.setOnClickListener(v -> ctr.derection = Derection.Right);
+        btnL.setOnClickListener(v -> ctr.derection = Derection.LEFT);
+        btnR.setOnClickListener(v -> ctr.derection = Derection.RIGHT);
     }
 }
