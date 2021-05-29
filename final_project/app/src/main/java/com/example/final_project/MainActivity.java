@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         text1 = findViewById(R.id.tvTime);
         ImageView tako = findViewById(R.id.tako);
         CountTime count = new CountTime(btn1, text1);
-        CountTakoRun ctr = new CountTakoRun(Derection.LEFT, tako);
         RelativeLayout rel = findViewById(R.id.gameRel);
         Context context = getApplicationContext();
-        CountYaya yaya = new CountYaya(context, rel);
+        CountYaya yaya = new CountYaya(context, rel, tako);
+        CountTakoRun ctr = new CountTakoRun(Derection.LEFT, tako, yaya);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @SuppressLint("ResourceType")
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
                         if(btn1.getText().equals("START")){
                             count.start("easy");
                             ctr.start();
-                            yaya.start();
                         }
                         else{
                             count.end();

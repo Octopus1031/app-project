@@ -6,12 +6,13 @@ import android.widget.ImageView;
 public class CountTakoRun {
     int time = 10000;  //10s
     ImageView tako;
+    CountYaya yaya;
     MainActivity.Derection derection;
-
     CountDownTimer timer;
-    CountTakoRun(MainActivity.Derection d, ImageView iv){
+    CountTakoRun(MainActivity.Derection d, ImageView iv, CountYaya yaya){
         tako = iv;
         derection = d;
+        this.yaya = yaya;
     }
     public void start(){
         timer = new CountDownTimer(time, 200) {
@@ -39,6 +40,7 @@ public class CountTakoRun {
                             tako.setX(0);
                         break;
                 }
+                yaya.count();
             }
             @Override
             public void onFinish() { }

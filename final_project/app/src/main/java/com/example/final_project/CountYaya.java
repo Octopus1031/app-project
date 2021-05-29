@@ -1,38 +1,49 @@
 package com.example.final_project;
 
 import android.content.Context;
-import android.os.CountDownTimer;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import java.util.Random;
+
 public class CountYaya {
-    int time = 10000;
-    CountDownTimer timer;
+    int countTimes = 0;
+    int left, top;
+    ImageView tako;
     Context c;
     RelativeLayout r;
-    int i = 0;                  //位移量
-    CountYaya(Context c, RelativeLayout r){
+    Random random = new Random();
+    ImageView im;
+    CountYaya(Context c, RelativeLayout r, ImageView tako){
         this.c = c;
         this.r =r;
+        this.tako = tako;
+        im = new ImageView(c);
     }
-    public void start(){
-    timer = new CountDownTimer(time, 200) {
-        @Override
-        public void onTick(long millisUntilFinished) {
-
-                ImageView im = new ImageView(c);
-                im.setImageResource(R.drawable.yaya);
-                RelativeLayout.LayoutParams par = new RelativeLayout.LayoutParams(100, 100);
-                par.leftMargin = 100+100*i;
-                par.rightMargin = 100+100*i;
-                i++;
-                r.addView(im, par);
+    public void count(){
+        if(countTimes!=0){
+            if(im.getX()==tako.getX()&&im.getY()==tako.getY()){
+                do{
+                    left = 100*random.nextInt(10);
+                    top = 100*random.nextInt(10);
+                }while(left==tako.getX()&&top==tako.getY());
+                im.setX(left);
+                im.setY(top);
+            }
         }
-            @Override
-            public void onFinish() { }
-        }.start();
-    }
-    public void end() {
-        timer.cancel();
+        else{
+            im.setImageResource(R.drawable.yaya);
+            RelativeLayout.LayoutParams par = new RelativeLayout.LayoutParams(100, 100);
+            do{
+                left = 100*random.nextInt(10);
+                top = 100*random.nextInt(10);
+            }while(left==tako.getX()&&top==tako.getY());
+            par.leftMargin = left;
+            par.topMargin = top;
+            r.addView(im, par);
+            countTimes++;
+        }
+        System.out.println(im.getX() + " " + im.getY());
+        System.out.println("tako" + tako.getX() + " " + tako.getY());
     }
 }
