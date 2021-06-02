@@ -3,7 +3,6 @@ package com.example.final_project;
 import android.content.Context;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import java.util.Random;
 
 public class CountYaya {
@@ -14,15 +13,18 @@ public class CountYaya {
     RelativeLayout r;
     Random random = new Random();
     ImageView im;
+
     CountYaya(Context c, RelativeLayout r, ImageView tako){
         this.c = c;
         this.r =r;
         this.tako = tako;
         im = new ImageView(c);
     }
-    public void count(){
+    public int count(){
+        int countAdd = 0;
         if(countTimes!=0){
             if(im.getX()==tako.getX()&&im.getY()==tako.getY()){
+                countAdd = 1;
                 do{
                     left = 100*random.nextInt(10);
                     top = 100*random.nextInt(10);
@@ -43,7 +45,6 @@ public class CountYaya {
             r.addView(im, par);
             countTimes++;
         }
-        System.out.println(im.getX() + " " + im.getY());
-        System.out.println("tako" + tako.getX() + " " + tako.getY());
+        return countAdd;
     }
 }

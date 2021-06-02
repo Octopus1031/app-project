@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private Button btn1,btnU,btnD,btnL,btnR;
     private TextView text1;
-    public enum Derection {UP, DOWN, LEFT, RIGHT};
+    public enum Direction {UP, DOWN, LEFT, RIGHT};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,12 +22,14 @@ public class MainActivity extends AppCompatActivity {
 //Time
         btn1 = (Button) findViewById(R.id.buttonStart);
         text1 = findViewById(R.id.tvTime);
-        ImageView tako = findViewById(R.id.tako);
+        ImageView takoIm = findViewById(R.id.tako);
+        TextView scoreT = findViewById(R.id.score);
         CountTime count = new CountTime(btn1, text1);
         RelativeLayout rel = findViewById(R.id.gameRel);
         Context context = getApplicationContext();
-        CountYaya yaya = new CountYaya(context, rel, tako);
-        CountTakoRun ctr = new CountTakoRun(Derection.LEFT, tako, yaya);
+        TakoNode tako = new TakoNode(takoIm);
+        CountYaya yaya = new CountYaya(context, rel, takoIm);
+        CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @SuppressLint("ResourceType")
@@ -50,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
         btnL = (Button)findViewById(R.id.butLeft);
         btnR = (Button)findViewById(R.id.butRight);
 
-        btnU.setOnClickListener(v -> ctr.derection = Derection.UP);
-        btnD.setOnClickListener(v -> ctr.derection = Derection.DOWN);
-        btnL.setOnClickListener(v -> ctr.derection = Derection.LEFT);
-        btnR.setOnClickListener(v -> ctr.derection = Derection.RIGHT);
+        btnU.setOnClickListener(v -> ctr.direction = Direction.UP);
+        btnD.setOnClickListener(v -> ctr.direction = Direction.DOWN);
+        btnL.setOnClickListener(v -> ctr.direction = Direction.LEFT);
+        btnR.setOnClickListener(v -> ctr.direction = Direction.RIGHT);
     }
 }
