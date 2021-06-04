@@ -106,6 +106,9 @@ public class TakoNode {
                     x = 0;
                 im.setX(x);
                 break;
+            case STOP:
+                break;
+
         }
     }
 

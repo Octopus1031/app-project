@@ -11,6 +11,7 @@ public class CountTakoRun {
     int time = 40000;//10000;  //10s
     TakoNode tako, tail;
     CountYaya yaya;
+    CountNian nian;
     Grass grass;//0603
     PeipeiFish fish;
     MainActivity.Direction direction;
@@ -24,7 +25,7 @@ public class CountTakoRun {
     int countFish = 0;
     int countyaya = 0;
 
-    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, Grass grass,PeipeiFish fish){
+    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, Grass grass,PeipeiFish fish, CountNian nian){
         this.c = c;
         this.r = r;
         direction = d;
@@ -33,6 +34,7 @@ public class CountTakoRun {
         this.scoreT = scareT;
         this.grass = grass;
         this.fish = fish;
+        this.nian = nian;
     }
     public void start(){
         tako.x = (int)tako.im.getX();
@@ -41,6 +43,7 @@ public class CountTakoRun {
         timer = new CountDownTimer(time, 200) {
             @Override
             public void onTick(long millisUntilFinished) {
+                direction = nian.count(direction);
                 if(countAdd==0 && countSub==0){
                     if(tail!=tako) {
                         tail = tail.littleMove(tako, tail);

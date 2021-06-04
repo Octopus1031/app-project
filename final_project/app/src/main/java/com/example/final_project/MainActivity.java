@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private Button btn1,btnU,btnD,btnL,btnR;
     private TextView text1;
-    public enum Direction {UP, DOWN, LEFT, RIGHT};
+    public enum Direction {UP, DOWN, LEFT, RIGHT, STOP};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
         TakoNode tako = new TakoNode(takoIm);
         CountYaya yaya = new CountYaya(context, rel, takoIm);
         Grass grass = new Grass(context, rel, takoIm);
+        CountNian nian = new CountNian(context, rel, takoIm);
 
-        CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass,fish);
+        CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass,fish, nian);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @SuppressLint("ResourceType")
