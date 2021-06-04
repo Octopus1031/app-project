@@ -15,6 +15,13 @@ public class MainActivity extends AppCompatActivity {
     private Button btn1,btnU,btnD,btnL,btnR;
     private TextView text1;
     public enum Direction {UP, DOWN, LEFT, RIGHT, STOP};
+    PeipeiFish fish;
+    CountTime count;
+    TakoNode tako;
+    CountYaya yaya;
+    CountGrass grass;
+    CountNian nian;
+    CountTakoRun ctr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,20 +33,20 @@ public class MainActivity extends AppCompatActivity {
         TextView scoreT = findViewById(R.id.score);
         RelativeLayout rel = findViewById(R.id.gameRel);
         Context context = getApplicationContext();
-        PeipeiFish fish = new PeipeiFish(context, rel, takoIm);
-        CountTime count = new CountTime(btn1, text1, fish);
-        TakoNode tako = new TakoNode(takoIm);
-        CountYaya yaya = new CountYaya(context, rel, takoIm);
-        CountGrass grass = new CountGrass(context, rel, takoIm);
-        CountNian nian = new CountNian(context, rel, takoIm);
-
-        CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass,fish, nian);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @SuppressLint("ResourceType")
                     @Override
                     public void onClick(View v) {
                         if(btn1.getText().equals("START")){
+                            fish = new PeipeiFish(context, rel, takoIm);
+                            count = new CountTime(btn1, text1, fish);
+                            tako = new TakoNode(takoIm);
+                            yaya = new CountYaya(context, rel, takoIm);
+                            grass = new CountGrass(context, rel, takoIm);
+                            nian = new CountNian(context, rel, takoIm);
+                            ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass, fish, nian);
+
                             count.start("easy");
                             ctr.start();
                         }
@@ -50,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
         btn1.setOnClickListener(buttonStartListener);
-        
+
         btnU = (Button)findViewById(R.id.butUp);
         btnD = (Button)findViewById(R.id.butDown);
         btnL = (Button)findViewById(R.id.butLeft);

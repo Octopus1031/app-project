@@ -23,9 +23,6 @@ public class TakoNode {
         pre = null;
         next = null;
         this.im = im;
-//        x = (int)im.getX();
-//        y = (int)im.getY();
-//        System.out.println(x + " " + y);
     }
 
     /* 當他扣吃到葉葉走且走到下一步時出現在上一步的位子
@@ -118,6 +115,18 @@ public class TakoNode {
         (tail.next).pre = null;//最後一個.pre = null
         tail.next = null;//倒數第二個.next = null
         return tail;
+    }
+
+    public void reset(){
+        x = 700;
+        y = 300;
+        im.setX(x);
+        im.setY(y);
+        TakoNode temp = next;
+        while(temp!=null){
+            (temp.im).setImageBitmap(null);
+            temp = temp.next;
+        }
     }
 
 }

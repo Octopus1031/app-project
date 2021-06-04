@@ -66,7 +66,7 @@ public class CountTakoRun {
 
                     if (countyaya == 1) {
 
-                        System.out.println("I touch yaya");
+//                        System.out.println("I touch yaya");
                         setScore(1);
                         new TakoNode(c, r).addLittleTako(tako);
                         while (tail.next != null) {
@@ -76,8 +76,9 @@ public class CountTakoRun {
                         countAdd = yaya.count();
                         (tako.next).show();
 
-                    } else {
-                        System.out.println("I touch fish");
+                    }
+                    else {
+//                        System.out.println("I touch fish");
                         setScore(1);
                         new TakoNode(c, r).addLittleTako(tako);
                         while (tail.next != null) {
@@ -128,6 +129,8 @@ public class CountTakoRun {
     }
     public void end() {
         timer.cancel();
+        tako.reset();
+        scoreT.setText("" + 0);
     }
     public void setScore(int s){
         if(s == 1){
