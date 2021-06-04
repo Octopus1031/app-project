@@ -12,6 +12,7 @@ public class CountTakoRun {
     TakoNode tako, tail;
     CountYaya yaya;
     Grass grass;//0603
+    PeipeiFish fish;
     MainActivity.Direction direction;
     Context c;
     RelativeLayout r;
@@ -19,7 +20,11 @@ public class CountTakoRun {
     CountDownTimer timer;
     int countAdd = 0;       //0不變 1增加 (2減少)
     int countSub = 0;      //0不變 -1減少
-    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, Grass grass){
+
+    int countFish = 0;
+    int countyaya = 0;
+
+    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, Grass grass,PeipeiFish fish){
         this.c = c;
         this.r = r;
         direction = d;
@@ -27,6 +32,7 @@ public class CountTakoRun {
         this.yaya = yaya;
         this.scoreT = scareT;
         this.grass = grass;
+        this.fish = fish;
     }
     public void start(){
         tako.x = (int)tako.im.getX();
@@ -41,20 +47,46 @@ public class CountTakoRun {
                     }
                     tako.bigMove(direction);
                     if(tako.next!=null){ (tako.next).showLittleMove(); }
-                    countAdd = yaya.count();
+
+                    countFish = fish.count();
+                    countyaya = yaya.count();
+                    countAdd = countFish + countyaya;
                     countSub = grass.appear();
 
                 }
-                else if(countAdd==1 && countSub==0){//Add = 0不變 1增加 Sub = 0不變 -1減少
-                    setScore(1);
-                    new TakoNode(c, r).addLittleTako(tako);
-                    while(tail.next!=null){
-                        tail = tail.next;
+                else if(countAdd==1 && countSub==0) {//Add = 0不變 1增加 Sub = 0不變 -1減少
+
+                    if (countyaya == 1) {
+
+                        System.out.println("I touch yaya");
+                        setScore(1);
+                        new TakoNode(c, r).addLittleTako(tako);
+                        while (tail.next != null) {
+                            tail = tail.next;
+                        }
+                        tako.bigMove(direction);
+                        countAdd = yaya.count();
+                        (tako.next).show();
+
+                    } else {
+                        System.out.println("I touch fish");
+                        setScore(1);
+                        new TakoNode(c, r).addLittleTako(tako);
+                        while (tail.next != null) {
+                            tail = tail.next;
+                        }
+                        tako.bigMove(direction);
+                        (tako.next).show();
+
+                        setScore(1);
+                        new TakoNode(c, r).addLittleTako(tako);
+                        while (tail.next != null) {
+                            tail = tail.next;
+                        }
+                        tako.bigMove(direction);
+                        countAdd = fish.count();
+                        (tako.next).show();
                     }
-                    tako.bigMove(direction);
-                    countAdd = yaya.count();
-                    countSub = grass.appear();
-                    (tako.next).show();
                 }
                 else if(countAdd==0 && countSub==-1){//Add = 0不變 1增加 Sub = 0不變 -1減少
                     setScore(-1);

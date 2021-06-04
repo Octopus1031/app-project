@@ -24,13 +24,15 @@ public class MainActivity extends AppCompatActivity {
         text1 = findViewById(R.id.tvTime);
         ImageView takoIm = findViewById(R.id.tako);
         TextView scoreT = findViewById(R.id.score);
-        CountTime count = new CountTime(btn1, text1);
         RelativeLayout rel = findViewById(R.id.gameRel);
         Context context = getApplicationContext();
+        PeipeiFish fish = new PeipeiFish(context, rel, takoIm);
+        CountTime count = new CountTime(btn1, text1, fish);
         TakoNode tako = new TakoNode(takoIm);
         CountYaya yaya = new CountYaya(context, rel, takoIm);
         Grass grass = new Grass(context, rel, takoIm);
-        CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass);
+
+        CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass,fish);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @SuppressLint("ResourceType")

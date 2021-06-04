@@ -9,9 +9,11 @@ public class CountTime {
     Button btn;
     TextView txt;
     CountDownTimer timer;
-    CountTime(Button button, TextView textView){
+    PeipeiFish fish;
+    CountTime(Button button, TextView textView,PeipeiFish fish){
         this.btn = button;
         this.txt = textView;
+        this.fish = fish;
     }
     public void start(String mode){
         btn.setText("END");
@@ -32,6 +34,9 @@ public class CountTime {
             @Override
             public void onTick(long millisUntilFinished) {
                 txt.setText("" + millisUntilFinished / 1000);
+                if(millisUntilFinished / 1000 % 2 == 0){
+                    fish.appear();
+                }
             }
             //                        結束提示
             @Override
