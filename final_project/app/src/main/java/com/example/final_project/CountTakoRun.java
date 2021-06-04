@@ -12,7 +12,7 @@ public class CountTakoRun {
     TakoNode tako, tail;
     CountYaya yaya;
     CountNian nian;
-    Grass grass;//0603
+    CountGrass grass;//0603
     PeipeiFish fish;
     MainActivity.Direction direction;
     Context c;
@@ -25,7 +25,7 @@ public class CountTakoRun {
     int countFish = 0;
     int countyaya = 0;
 
-    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, Grass grass,PeipeiFish fish, CountNian nian){
+    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, CountGrass grass,PeipeiFish fish, CountNian nian){
         this.c = c;
         this.r = r;
         direction = d;
@@ -45,11 +45,11 @@ public class CountTakoRun {
             public void onTick(long millisUntilFinished) {
                 direction = nian.count(direction);
                 if(countAdd==0 && countSub==0){
-                    if(tail!=tako) {
+                    if(tail!=tako && direction!= MainActivity.Direction.STOP){
                         tail = tail.littleMove(tako, tail);
                     }
-                    tako.bigMove(direction);
-                    if(tako.next!=null){ (tako.next).showLittleMove(); }
+                    if(direction!= MainActivity.Direction.STOP)tako.bigMove(direction);
+                    if(tako.next!=null && direction!= MainActivity.Direction.STOP){ (tako.next).showLittleMove(); }
 
                     countFish = fish.count();
                     countyaya = yaya.count();

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         CountTime count = new CountTime(btn1, text1, fish);
         TakoNode tako = new TakoNode(takoIm);
         CountYaya yaya = new CountYaya(context, rel, takoIm);
-        Grass grass = new Grass(context, rel, takoIm);
+        CountGrass grass = new CountGrass(context, rel, takoIm);
         CountNian nian = new CountNian(context, rel, takoIm);
 
         CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass,fish, nian);
