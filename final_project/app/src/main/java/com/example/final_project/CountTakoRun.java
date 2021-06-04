@@ -54,7 +54,12 @@ public class CountTakoRun {
                     countFish = fish.count();
                     countyaya = yaya.count();
                     countAdd = countFish + countyaya;
-                    countSub = grass.appear();
+                    if(score>=1){//小tako在有一隻以上grass才出現
+                        countSub = grass.appear();
+                    }
+                    else{
+                        countSub = 0;
+                    }
 
                 }
                 else if(countAdd==1 && countSub==0) {//Add = 0不變 1增加 Sub = 0不變 -1減少
@@ -90,6 +95,12 @@ public class CountTakoRun {
                         countAdd = fish.count();
                         (tako.next).show();
                     }
+                    if(score>=1){//小tako在有一隻以上grass才出現
+                        countSub = grass.appear();
+                    }
+                    else{
+                        countSub = 0;
+                    }
                 }
                 else if(countAdd==0 && countSub==-1){//Add = 0不變 1增加 Sub = 0不變 -1減少
                     setScore(-1);
@@ -102,7 +113,12 @@ public class CountTakoRun {
                     }
                     tako.bigMove(direction);
                     countAdd = yaya.count();
-                    countSub = grass.appear();
+                    if(score>=1){//小tako在有一隻以上grass才出現
+                        countSub = grass.appear();
+                    }
+                    else{
+                        countSub = 0;
+                    }
                     (tako.next).showLittleMove();
                 }
             }
