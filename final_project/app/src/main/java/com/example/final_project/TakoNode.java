@@ -109,4 +109,12 @@ public class TakoNode {
         }
     }
 
+    public TakoNode delLittleTako(TakoNode tail){//刪掉最後一個node
+        tail.im.setImageDrawable(null);//   好像會刪到第一個小章魚
+        tail = tail.pre;//tail指向前一個/倒數第二個node
+        (tail.next).pre = null;//最後一個.pre = null
+        tail.next = null;//倒數第二個.next = null
+        return tail;
+    }
+
 }

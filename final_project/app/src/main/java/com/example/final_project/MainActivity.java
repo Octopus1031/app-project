@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         Context context = getApplicationContext();
         TakoNode tako = new TakoNode(takoIm);
         CountYaya yaya = new CountYaya(context, rel, takoIm);
-        CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT);
+        Grass grass = new Grass(context, rel, takoIm);
+        CountTakoRun ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass);
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @SuppressLint("ResourceType")
