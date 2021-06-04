@@ -19,11 +19,14 @@ public class CountNian {
     int left, top;
     Random random = new Random();
     RelativeLayout.LayoutParams par = new RelativeLayout.LayoutParams(100, 100);
-    CountNian(Context c, RelativeLayout rel, ImageView tako){
+    ItemStruct[] item;
+
+    CountNian(Context c, RelativeLayout rel, ImageView tako, ItemStruct[] item){
         this.c = c;
         this.rel = rel;
         this.tako = tako;
         im = new ImageView(c);
+        this.item = item;
     }
     public MainActivity.Direction count( MainActivity.Direction derection) {
         if(stop == false) {     //當下未碰到黏
@@ -34,11 +37,13 @@ public class CountNian {
                     do {
                         left = 100 * (random.nextInt(10));
                         top = 100 * (random.nextInt(10));
-                    } while (left == tako.getX() && top == tako.getY());
+                        System.out.println(randomCheck(left, top));
+                    }while(left==tako.getX()&&top==tako.getY() || randomCheck(left, top));
                     par.leftMargin = left;
                     par.topMargin = top;
                     rel.addView(im, par);
                     countTimes++;
+                    item[2].x = left; item[2].y = top;
                 }
             }
             else{                                           //已出現過黏
@@ -47,6 +52,7 @@ public class CountNian {
                     nxtDirection = MainActivity.Direction.STOP;         //方向暫停
                     im.setX(-100);              //黏放在看不到的地方
                     im.setY(-100);
+                    item[2].x = left; item[2].y = top;
                     countStop = 10;
                     rand = false;           //暫停隨機黏
                 }
@@ -55,9 +61,11 @@ public class CountNian {
                         do {
                             left = 100 * random.nextInt(10);
                             top = 100 * random.nextInt(10);
-                        } while (left == tako.getX() && top == tako.getY());
+                            System.out.println(randomCheck(left, top));
+                        }while(left==tako.getX()&&top==tako.getY() || randomCheck(left, top));
                         im.setX(left);
                         im.setY(top);
+                        item[2].x = left; item[2].y = top;
                         rand = false;
                     }
                 }
@@ -73,5 +81,14 @@ public class CountNian {
             rand = true;        //可以隨機黏
         }
         return nxtDirection;
+    }
+
+    public boolean randomCheck(int randx, int randy){
+        boolean bump = false; //無重疊, 檢查通過
+        for(int i = 0; i<item.length; i++){
+            if(randx == item[i].x || randy == item[i].y)
+                bump = true;
+        }
+        return bump;
     }
 }

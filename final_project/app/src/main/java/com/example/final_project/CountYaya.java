@@ -13,12 +13,14 @@ public class CountYaya {
     RelativeLayout r;
     Random random = new Random();
     ImageView im;
+    ItemStruct[] item;
 
-    CountYaya(Context c, RelativeLayout r, ImageView tako){
+    CountYaya(Context c, RelativeLayout r, ImageView tako, ItemStruct[] item){
         this.c = c;
         this.r =r;
         this.tako = tako;
         im = new ImageView(c);
+        this.item = item;
     }
     public int count(){
         int countAdd = 0;
@@ -26,11 +28,16 @@ public class CountYaya {
             if(im.getX()==tako.getX()&&im.getY()==tako.getY()){
                 countAdd = 1;
                 do{
+                    randomCheck(left, top);
                     left = 100*random.nextInt(10);
                     top = 100*random.nextInt(10);
-                }while(left==tako.getX()&&top==tako.getY());
+                    System.out.println(randomCheck(left, top));
+                }while(left==tako.getX()&&top==tako.getY() || randomCheck(left, top));
                 im.setX(left);
                 im.setY(top);
+                item[1].x = left; item[1].y = top;
+//                System.out.println("x="+item[1].x);
+//                System.out.println("y="+item[1].y);
             }
         }
         else{
@@ -39,12 +46,22 @@ public class CountYaya {
             do{
                 left = 100*random.nextInt(10);
                 top = 100*random.nextInt(10);
-            }while(left==tako.getX()&&top==tako.getY());
+                System.out.println(randomCheck(left, top));
+            }while(left==tako.getX()&&top==tako.getY() || randomCheck(left, top));
             par.leftMargin = left;
             par.topMargin = top;
             r.addView(im, par);
+            item[1].x = left; item[1].y = top;
             countTimes++;
         }
         return countAdd;
+    }
+    public boolean randomCheck(int randx, int randy){
+        boolean bump = false; //false無重疊, 檢查通過
+        for(int i = 0; i<item.length; i++){
+            if(randx == item[i].x || randy == item[i].y)
+                bump = true;
+        }
+        return bump;
     }
 }

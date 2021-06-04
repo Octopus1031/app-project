@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public enum Direction {UP, DOWN, LEFT, RIGHT, STOP};
     PeipeiFish fish;
     CountTime count;
-    TakoNode tako;
+    TakoNode tako ;
     CountYaya yaya;
     CountGrass grass;
     CountNian nian;
@@ -27,25 +27,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //Time
+
+        ItemStruct[] item = new ItemStruct[4]; //fish, nian, yaya, grass
         btn1 = (Button) findViewById(R.id.buttonStart);
         text1 = findViewById(R.id.tvTime);
         ImageView takoIm = findViewById(R.id.tako);
         TextView scoreT = findViewById(R.id.score);
         RelativeLayout rel = findViewById(R.id.gameRel);
         Context context = getApplicationContext();
+
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
                     @SuppressLint("ResourceType")
                     @Override
                     public void onClick(View v) {
                         if(btn1.getText().equals("START")){
-                            fish = new PeipeiFish(context, rel, takoIm);
+                            fish = new PeipeiFish(context, rel, takoIm, item);
                             count = new CountTime(btn1, text1, fish);
                             tako = new TakoNode(takoIm);
-                            yaya = new CountYaya(context, rel, takoIm);
-                            grass = new CountGrass(context, rel, takoIm);
-                            nian = new CountNian(context, rel, takoIm);
-                            ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass, fish, nian);
+                            yaya = new CountYaya(context, rel, takoIm, item);
+                            grass = new CountGrass(context, rel, takoIm, item);
+                            nian = new CountNian(context, rel, takoIm, item);
+                            ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass, fish, nian, item);
 
                             count.start("easy");
                             ctr.start();
