@@ -120,7 +120,8 @@ public class CountTakoRun {
                     else{
                         countSub = 0;
                     }
-                    (tako.next).showLittleMove();
+                    if(tail!=tako)
+                        (tako.next).showLittleMove();
                 }
             }
             @Override

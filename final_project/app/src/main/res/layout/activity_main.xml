@@ -10,22 +10,31 @@
     tools:context=".MainActivity">
 <!--    比例 layout_height-->
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#ddddff"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:background="#ddddff">
         <!--        clock, start, 分秒分開, 比例-->
         <TextView
             android:id="@+id/tvTime"
             android:layout_width='wrap_content'
             android:layout_height='wrap_content'
-            android:layout_gravity="center"
+            android:layout_centerInParent="true"
             android:text='60'
             android:textSize='50dp' />
-    </LinearLayout>
+
+        <Button
+            android:id="@+id/rule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="80dp"
+            android:layout_toLeftOf="@+id/tvTime"
+            android:text="規則"
+            android:textSize="20dp"
+            app:backgroundTint="#99AAAA" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id='@+id/gameViewContainer'
@@ -116,7 +125,7 @@
                     android:gravity="center"
                     android:text="0"
                     android:textColor="@color/black"
-                    android:textSize="65dp" />
+                    android:textSize="5dp5dp" />
             </LinearLayout>
 
         </RelativeLayout>

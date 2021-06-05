@@ -1,5 +1,6 @@
 package com.example.final_project;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -67,5 +68,16 @@ public class MainActivity extends AppCompatActivity {
         btnD.setOnClickListener(v -> ctr.direction = Direction.DOWN);
         btnL.setOnClickListener(v -> ctr.direction = Direction.LEFT);
         btnR.setOnClickListener(v -> ctr.direction = Direction.RIGHT);
+
+        Button ruleB = findViewById(R.id.rule);
+        Button.OnClickListener bslRule = new Button.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("規則講解");
+
+            }
+        };
+        ruleB.setOnClickListener(bslRule);
     }
 }

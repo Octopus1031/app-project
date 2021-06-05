@@ -26,7 +26,6 @@ public class PeipeiFish {
     public void appear()
     {
        rand = random.nextInt(5);
-        System.out.println(rand);
         if (rand == 1) {
             if(countTimes!=0){
                 do {
