@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class CountTakoRun {
     int score = 0;
     int time = 40000;//10000;  //10s
+    ItemStruct[] item;
     TakoNode tako, tail;
     CountYaya yaya;
     CountNian nian;
@@ -25,7 +26,7 @@ public class CountTakoRun {
     int countFish = 0;
     int countyaya = 0;
 
-    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, CountGrass grass,PeipeiFish fish, CountNian nian){
+    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, CountGrass grass,PeipeiFish fish, CountNian nian, ItemStruct[] item){
         this.c = c;
         this.r = r;
         direction = d;
@@ -35,6 +36,8 @@ public class CountTakoRun {
         this.grass = grass;
         this.fish = fish;
         this.nian = nian;
+        this.item = item;
+        initializeItem();
     }
     public void start(){
         tako.x = (int)tako.im.getX();
@@ -66,7 +69,7 @@ public class CountTakoRun {
 
                     if (countyaya == 1) {
 
-//                        System.out.println("I touch yaya");
+                        //System.out.println("I touch yaya");
                         setScore(1);
                         new TakoNode(c, r).addLittleTako(tako);
                         while (tail.next != null) {
@@ -76,9 +79,8 @@ public class CountTakoRun {
                         countAdd = yaya.count();
                         (tako.next).show();
 
-                    }
-                    else {
-//                        System.out.println("I touch fish");
+                    } else {
+                       // System.out.println("I touch fish");
                         setScore(1);
                         new TakoNode(c, r).addLittleTako(tako);
                         while (tail.next != null) {
@@ -108,7 +110,7 @@ public class CountTakoRun {
                     //while(tail.next!=null){
                     //    tail = tail.next;
                     //}
-                    tail = tako.delLittleTako(tail);
+                    tail = tako.delLittleTako(tako, tail);
                     if(tail!=tako) {
                         tail = tail.littleMove(tako, tail);
                     }
@@ -140,5 +142,10 @@ public class CountTakoRun {
         else if(s == -1) {
             scoreT.setText("" + --score);
         }
+    }
+
+    public void initializeItem(){
+        for(int i = 0; i<4; i++)
+            item[i] = new ItemStruct(-200, -200);   // null
     }
 }

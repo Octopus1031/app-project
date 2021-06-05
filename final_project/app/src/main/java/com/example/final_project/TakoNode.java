@@ -23,6 +23,9 @@ public class TakoNode {
         pre = null;
         next = null;
         this.im = im;
+//        x = (int)im.getX();
+//        y = (int)im.getY();
+//        System.out.println(x + " " + y);
     }
 
     /* 當他扣吃到葉葉走且走到下一步時出現在上一步的位子
@@ -109,11 +112,13 @@ public class TakoNode {
         }
     }
 
-    public TakoNode delLittleTako(TakoNode tail){//刪掉最後一個node
+    public TakoNode delLittleTako(TakoNode tako, TakoNode tail){//刪掉最後一個node
         tail.im.setImageDrawable(null);//   好像會刪到第一個小章魚
-        tail = tail.pre;//tail指向前一個/倒數第二個node
-        (tail.next).pre = null;//最後一個.pre = null
-        tail.next = null;//倒數第二個.next = null
+        if(tail.pre != tako && tail != tako) {
+                tail = tail.pre;//tail指向前一個/倒數第二個node
+                (tail.next).pre = null;//最後一個.pre = null
+                tail.next = null;//倒數第二個.next = null
+        }
         return tail;
     }
 
@@ -128,5 +133,6 @@ public class TakoNode {
             temp = temp.next;
         }
     }
+
 
 }

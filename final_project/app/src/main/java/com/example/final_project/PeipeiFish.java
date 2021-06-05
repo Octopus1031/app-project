@@ -15,12 +15,14 @@ public class PeipeiFish {
     Random random = new Random();
     ImageView im;
     int rand;
+    ItemStruct[] item;
 
-    PeipeiFish(Context c , RelativeLayout r , ImageView tako){
+    PeipeiFish(Context c , RelativeLayout r , ImageView tako, ItemStruct[] item){
         this.c = c;
         this.r = r;
         this.tako = tako;
         im = new ImageView(c);
+        this.item = item;
     }
 
     public void appear()
@@ -31,10 +33,11 @@ public class PeipeiFish {
                 do {
                     left = 100 * random.nextInt(10);
                     top = 100 * random.nextInt(10);
-                } while (left == tako.getX() && top == tako.getY());
+                    System.out.println(randomCheck(left, top));
+                }while(left==tako.getX()&&top==tako.getY() || randomCheck(left, top));
                 im.setX(left);
                 im.setY(top);
-
+                item[3].x = left; item[3].y = top;
             }
             else {
                 im.setImageResource(R.drawable.fish);
@@ -42,10 +45,12 @@ public class PeipeiFish {
                 do {
                     left = 100 * random.nextInt(10);
                     top = 100 * random.nextInt(10);
-                } while (left == tako.getX() && top == tako.getY());
+                    System.out.println(randomCheck(left, top));
+                }while(left==tako.getX()&&top==tako.getY() || randomCheck(left, top));
                 par.leftMargin = left;
                 par.topMargin = top;
                 r.addView(im, par);
+                item[3].x = left; item[3].y = top;
                 countTimes++;
             }
         }
@@ -59,12 +64,23 @@ public class PeipeiFish {
                 do {
                     left = 100 * random.nextInt(10);
                     top = 100 * random.nextInt(10);
-                } while (left == tako.getX() && top == tako.getY());
+                    System.out.println(randomCheck(left, top));
+                }while(left==tako.getX()&&top==tako.getY() || randomCheck(left, top));
                 im.setX(left);
                 im.setY(top);
+                item[3].x = left; item[3].y = top;
                 countAdd = 1;
             }
         }
         return countAdd;
+    }
+
+    public boolean randomCheck(int randx, int randy){
+        boolean bump = false; //無重疊, 檢查通過
+        for(int i = 0; i<item.length; i++){
+            if(randx == item[i].x || randy == item[i].y)
+                bump = true;
+        }
+        return bump;
     }
 }
