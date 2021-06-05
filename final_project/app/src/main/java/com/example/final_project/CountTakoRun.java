@@ -107,10 +107,8 @@ public class CountTakoRun {
                 }
                 else if(countAdd==0 && countSub==-1){//Add = 0不變 1增加 Sub = 0不變 -1減少
                     setScore(-1);
-                    //while(tail.next!=null){
-                    //    tail = tail.next;
-                    //}
-                    tail = tako.delLittleTako(tako, tail);
+//                    tail = tako.delLittleTako(tako, tail);
+                    tail = tail.delLittleTako();
                     if(tail!=tako) {
                         tail = tail.littleMove(tako, tail);
                     }
