@@ -42,6 +42,7 @@ public class CountYaya {
         }
         else{
             im.setImageResource(R.drawable.yaya);
+            item[1].im = im;
             RelativeLayout.LayoutParams par = new RelativeLayout.LayoutParams(100, 100);
             do{
                 left = 100*random.nextInt(10);

@@ -11,6 +11,7 @@ public class TakoNode {
     RelativeLayout r;
     ImageView im;       //self
     TakoNode pre, next;
+    ItemStruct[] item;
 
     TakoNode(Context c, RelativeLayout r){      //for small
         this.c = c;
@@ -129,6 +130,11 @@ public class TakoNode {
         while(temp!=null){
             (temp.im).setImageBitmap(null);
             temp = temp.next;
+        }
+    }
+    public void resetItem(ItemStruct[] item){//把道具圖片清除
+        for(int i = 0; i<4; i++){
+            item[i].im.setImageDrawable(null);
         }
     }
 

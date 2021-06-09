@@ -34,6 +34,7 @@ public class CountNian {
             if(countTimes == 0) {                           //還未出現黏
                 if (random.nextInt(3) == 0) {       //隨機
                     im.setImageResource(R.drawable.nian);
+                    item[2].im = im;
                     do {
                         left = 100 * (random.nextInt(10));
                         top = 100 * (random.nextInt(10));
