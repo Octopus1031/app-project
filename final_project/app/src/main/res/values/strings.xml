@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">final_project</string>
+    <string name="app_name">章魚吃葉葉</string>
+    <string name="rule1">葉葉：小章魚夥伴＋1</string>
+    <string name="rule2">黏黏：暫停移動2秒</string>
+    <string name="rule3">珮珮魚：小章魚夥伴＋2 隨機出現</string>
+    <string name="rule4">海草：小章魚夥伴—1</string>
 </resources>

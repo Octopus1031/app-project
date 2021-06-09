@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.preference.DialogPreference;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -74,10 +77,20 @@ public class MainActivity extends AppCompatActivity {
 
         Button ruleB = findViewById(R.id.rule);
         Button.OnClickListener bslRule = new Button.OnClickListener(){
+            LayoutInflater inf = getLayoutInflater();
+            View view = inf.inflate(R.layout.alert_dialog_layout, null);
             @Override
             public void onClick(View v){
                 new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("規則講解");
+                    .setTitle("遊戲規則")
+                    .setView(view)
+                    .setNegativeButton("關閉規則", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            //null
+                        }
+                    })
+                    .show();
 
             }
         };
