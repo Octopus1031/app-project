@@ -37,7 +37,7 @@ public class CountTakoRun {
         this.fish = fish;
         this.nian = nian;
         this.item = item;
-        initializeItem();
+        initializeArray();
     }
     public void start(){
         tako.x = (int)tako.im.getX();
@@ -131,6 +131,7 @@ public class CountTakoRun {
     public void end() {
         timer.cancel();
         tako.reset();
+        tako.resetItem(item);
         scoreT.setText("" + 0);
     }
     public void setScore(int s){
@@ -142,8 +143,8 @@ public class CountTakoRun {
         }
     }
 
-    public void initializeItem(){
+    public void initializeArray(){
         for(int i = 0; i<4; i++)
-            item[i] = new ItemStruct(-200, -200);   // null
+            item[i] = new ItemStruct(c, r,-200, -200);   // null
     }
 }

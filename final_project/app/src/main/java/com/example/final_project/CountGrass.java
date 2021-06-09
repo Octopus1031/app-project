@@ -36,11 +36,12 @@ public class CountGrass {
                 }while(left==tako.getX()&&top==tako.getY() || randomCheck(left, top));
                 im.setX(left);
                 im.setY(top);
-                item[0].x = left; item[0].y = top;
+                item[0].x = left; item[0].y = top;// item[0].im.setImageResource(R.drawable.grass);//0609
             }
         }
         else{//第一次出現,只是讓它不出現在tako位置
             im.setImageResource(R.drawable.grass);
+            item[0].im = im;
             RelativeLayout.LayoutParams par = new RelativeLayout.LayoutParams(100,100);
             do{
                 left = 100*random.nextInt(10);

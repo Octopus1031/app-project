@@ -41,6 +41,7 @@ public class PeipeiFish {
             }
             else {
                 im.setImageResource(R.drawable.fish);
+                item[3].im = im;
                 RelativeLayout.LayoutParams par = new RelativeLayout.LayoutParams(100, 100);
                 do {
                     left = 100 * random.nextInt(10);
