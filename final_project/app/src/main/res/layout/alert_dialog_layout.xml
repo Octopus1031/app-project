@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="這是一個章魚吃葉葉\n拯救小夥伴的故事\n蒐集到越多小章魚\n就是個越讚的大章魚喔òwó!\n"
+        android:text="這是一個章魚吃葉葉\n拯救小夥伴的故事\n蒐集到越多小章魚\n就是個越讚的大章魚喔òwó!\n但也要小心別撞到脆弱的小章魚喔?!\n"
         android:gravity="center"
         android:textColor="@color/black"/>
 

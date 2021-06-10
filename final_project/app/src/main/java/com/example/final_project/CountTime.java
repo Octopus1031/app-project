@@ -42,6 +42,7 @@ public class CountTime {
             @Override
             public void onFinish() {
                 txt.setText("遊戲結束!!");
+                txt.setTextSize(40);
                 btn.setText("RESET");
             }
         }.start();
@@ -51,5 +52,6 @@ public class CountTime {
         btn.setText("START");
         timer.cancel();
         txt.setText("60");
+        txt.setTextSize(50);
     }
 }
