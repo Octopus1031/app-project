@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class CountTakoRun {
     int score = 0;
-    int time = 40000;//10000;  //10s
+    int time = 60000;//10000;  //10s
     ItemStruct[] item;
     TakoNode tako, tail;
     CountYaya yaya;

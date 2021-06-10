@@ -126,10 +126,10 @@ public class TakoNode {
                 break;
             case STOP:
                 break;
-
         }
         im.bringToFront();
         preDirection = direction;
+        System.out.println(direction);
     }
 
     public TakoNode delLittleTako(){//刪掉最後一個node
