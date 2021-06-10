@@ -19,7 +19,7 @@ public class GameView extends View {
     protected void onDraw (Canvas canvas) {
         super.onDraw(canvas);
         Paint paint = new Paint();
-        paint.setColor(Color.BLACK);
+        paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(1);
         for(int i=0;i<=1000;i+=100){
