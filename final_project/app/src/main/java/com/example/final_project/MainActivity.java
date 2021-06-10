@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         RelativeLayout rLayout = (RelativeLayout) findViewById (R.id.gameViewContainer);
         Resources res = getResources();
         Drawable[] bgDrawable = {res.getDrawable(R.drawable.bg1), res.getDrawable(R.drawable.bg2), res.getDrawable(R.drawable.bg3), res.getDrawable(R.drawable.bg4)};
-        rLayout.setBackground(bgDrawable[0])
+        rLayout.setBackground(bgDrawable[0]);
 
 
         ItemStruct[] item = new ItemStruct[4]; //fish, nian, yaya, grass
