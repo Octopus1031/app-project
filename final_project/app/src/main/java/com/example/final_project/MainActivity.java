@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.view.LayoutInflater;
@@ -18,9 +20,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btn1,btnU,btnD,btnL,btnR;
+    private Button btn1,btnU,btnD,btnL,btnR, btnBG;
     private TextView text1;
     public enum Direction {UP, DOWN, LEFT, RIGHT, STOP};
 
@@ -38,7 +41,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//Time
+
+        btnBG = (Button)findViewById(R.id.bgRand);
+        RelativeLayout rLayout = (RelativeLayout) findViewById (R.id.gameViewContainer);
+        Resources res = getResources();
+        Drawable[] bgDrawable = {res.getDrawable(R.drawable.bg1), res.getDrawable(R.drawable.bg2), res.getDrawable(R.drawable.bg3), res.getDrawable(R.drawable.bg4)};
+        rLayout.setBackground(bgDrawable[0])
+
 
         ItemStruct[] item = new ItemStruct[4]; //fish, nian, yaya, grass
         btn1 = (Button) findViewById(R.id.buttonStart);
@@ -137,6 +146,15 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        Button.OnClickListener btnBGListener = new Button.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Random rdBG = new Random();
+                rLayout.setBackground(bgDrawable[rdBG.nextInt(bgDrawable.length)]);
+            }
+        };
+        btnBG.setOnClickListener(btnBGListener);
 
     }
     private void initList() {

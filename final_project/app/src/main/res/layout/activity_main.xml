@@ -14,33 +14,47 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#ddddff">
+        android:background="#3E367C">
         <!--        clock, start, 分秒分開, 比例-->
         <TextView
             android:id="@+id/tvTime"
             android:layout_width='wrap_content'
             android:layout_height='wrap_content'
-            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
             android:text='60'
-            android:textSize='50dp' />
+            android:textColor="@color/white"
+            android:textSize='50dp'
+            android:layout_centerVertical="true"/>
 
         <Button
             android:id="@+id/rule"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="220dp"
             android:layout_alignParentLeft="true"
-            android:text="規則"
-            android:textSize="20dp"
-            app:backgroundTint="#99AAAA" />
+            android:text="規\n則"
+            android:textSize="15dp"
+            app:backgroundTint="#6960AE" />
+
+        <Button
+            android:id="@+id/bgRand"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="280dp"
+            android:layout_alignParentLeft="true"
+            android:text="背\n景"
+            android:textSize="15dp"
+            app:backgroundTint="#6960AE" />
 
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="75dp"
             android:layout_height="45dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="300dp"
+            android:layout_marginLeft="340dp"
             android:layout_alignParentLeft="true"
 
             android:background="@drawable/spinner_back"
@@ -89,7 +103,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="#bbffbb"
+        android:background="#3E367C "
         android:layout_alignParentBottom="true"
         android:layout_weight="3"
         >
@@ -102,6 +116,7 @@
             android:layout_weight='1'>
             <Button
                 android:id="@+id/buttonStart"
+                android:backgroundTint="#8C85C3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="START"
@@ -148,7 +163,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight='1'
-            android:background="#aaccaa">
+            android:background="#59509E">
             <Button
                 android:id="@+id/butCenter"
                 android:layout_width="150px"
@@ -160,6 +175,7 @@
                 android:layout_width="150px"
                 android:layout_height="150px"
                 android:text='D'
+                android:backgroundTint="#2B2652"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/butCenter"/>
             <Button
@@ -167,6 +183,7 @@
                 android:layout_width="150px"
                 android:layout_height="150px"
                 android:text='U'
+                android:backgroundTint="#2B2652"
                 android:layout_centerHorizontal="true"
                 android:layout_above="@+id/butCenter"/>
             <Button
@@ -174,6 +191,7 @@
                 android:layout_width="150px"
                 android:layout_height="150px"
                 android:text='L'
+                android:backgroundTint="#2B2652"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/butCenter"/>
             <Button
@@ -181,6 +199,7 @@
                 android:layout_width="150px"
                 android:layout_height="150px"
                 android:text='R'
+                android:backgroundTint="#2B2652"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/butCenter"/>
 
