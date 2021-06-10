@@ -19,7 +19,7 @@ public class CountTime {
         btn.setText("RESTART");
         switch(mode){
             case "easy":
-                time = 40000;//10000;
+                time = 60000;//10000;
                 break;
             case "normal":
                 time = 30000;
@@ -42,7 +42,7 @@ public class CountTime {
             @Override
             public void onFinish() {
                 txt.setText("遊戲結束!!");
-                txt.setTextSize(40);
+                txt.setTextSize(35);
                 btn.setText("RESET");
                 timer.cancel();
             }

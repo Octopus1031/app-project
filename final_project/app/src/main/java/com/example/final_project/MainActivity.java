@@ -93,10 +93,10 @@ public class MainActivity extends AppCompatActivity {
 
         Button ruleB = findViewById(R.id.rule);
         Button.OnClickListener bslRule = new Button.OnClickListener(){
-            LayoutInflater inf = getLayoutInflater();
-            View view = inf.inflate(R.layout.alert_dialog_layout, null);
             @Override
             public void onClick(View v){
+                LayoutInflater inf = getLayoutInflater();
+                View view = inf.inflate(R.layout.alert_dialog_layout, null);
                 new AlertDialog.Builder(MainActivity.this)
                     .setTitle("遊戲規則")
                     .setView(view)
