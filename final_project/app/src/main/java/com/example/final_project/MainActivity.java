@@ -10,15 +10,23 @@ import android.os.Bundle;
 import android.preference.DialogPreference;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private Button btn1,btnU,btnD,btnL,btnR;
     private TextView text1;
     public enum Direction {UP, DOWN, LEFT, RIGHT, STOP};
+
+    private ArrayList<TakoItem> mTakoList;
+    private MyAdapter mAdapter;
+
     PeipeiFish fish;
     CountTime count;
     TakoNode tako ;
@@ -39,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
         TextView scoreT = findViewById(R.id.score);
         RelativeLayout rel = findViewById(R.id.gameRel);
         Context context = getApplicationContext();
+
+        initList();
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        mAdapter = new MyAdapter(this, mTakoList);
+        spinner.setAdapter(mAdapter);
+        spinner.setSelection(0, false);
 
         Button.OnClickListener buttonStartListener =
                 new Button.OnClickListener() {
@@ -63,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 };
+
         btn1.setOnClickListener(buttonStartListener);
 
         btnU = (Button)findViewById(R.id.butUp);
@@ -94,5 +110,40 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         ruleB.setOnClickListener(bslRule);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch(position) {
+                    case 0:
+                        takoIm.setImageResource(R.drawable.tako);
+                        break;
+                    case 1:
+                        takoIm.setImageResource(R.drawable.tako1);
+                        break;
+                    case 2:
+                        takoIm.setImageResource(R.drawable.tako2);
+                        break;
+                    case 3:
+                        takoIm.setImageResource(R.drawable.tako3);
+                        break;
+                    default:
+                        takoIm.setImageResource(R.drawable.tako);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+    }
+    private void initList() {
+        mTakoList = new ArrayList<>();
+        mTakoList.add(new TakoItem(R.drawable.tako));
+        mTakoList.add(new TakoItem(R.drawable.tako1));
+        mTakoList.add(new TakoItem(R.drawable.tako2));
+        mTakoList.add(new TakoItem( R.drawable.tako3));
     }
 }

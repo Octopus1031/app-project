@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners android:radius="3dp" />      <!--圓角度數-->
+            <solid android:color="#95CACA" >      <!--背景顏色-->
+            </solid>
+           <padding android:left="0dp"  />       <!-- 邊距-->
+            <size
+                android:width="75dp"
+                android:height="45dp"
+                />
+        </shape>
+    </item>
+</selector>

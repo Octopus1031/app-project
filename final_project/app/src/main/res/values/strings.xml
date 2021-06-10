@@ -4,4 +4,5 @@
     <string name="rule2">黏黏：暫停移動2秒</string>
     <string name="rule3">珮珮魚：小章魚夥伴＋2 隨機出現</string>
     <string name="rule4">海草：小章魚夥伴—1</string>
+    <string name="tako_prompt">選擇你的章魚小夥伴:</string>
 </resources>
