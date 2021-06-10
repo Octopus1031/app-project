@@ -19,6 +19,7 @@ public class CountTakoRun {
     Context c;
     RelativeLayout r;
     TextView scoreT;
+    CountTime ct;
     CountDownTimer timer;
     int countAdd = 0;       //0不變 1增加 (2減少)
     int countSub = 0;      //0不變 -1減少
@@ -26,7 +27,7 @@ public class CountTakoRun {
     int countFish = 0;
     int countyaya = 0;
 
-    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, CountGrass grass,PeipeiFish fish, CountNian nian, ItemStruct[] item){
+    CountTakoRun(Context c, RelativeLayout r, MainActivity.Direction d, TakoNode tako, CountYaya yaya, TextView scareT, CountGrass grass,PeipeiFish fish, CountNian nian, ItemStruct[] item, CountTime ct){
         this.c = c;
         this.r = r;
         direction = d;
@@ -37,6 +38,7 @@ public class CountTakoRun {
         this.fish = fish;
         this.nian = nian;
         this.item = item;
+        this.ct = ct;
         initializeArray();
     }
     public void start(){
@@ -123,9 +125,15 @@ public class CountTakoRun {
                     if(tail!=tako)
                         (tako.next).showLittleMove();
                 }
+                //test collision
+                if( testCollision() ){
+                    ct.timer.onFinish();
+                    timer.onFinish();
+                }
+
             }
             @Override
-            public void onFinish() { }
+            public void onFinish() { timer.cancel(); }
         }.start();
     }
     public void end() {
@@ -146,5 +154,13 @@ public class CountTakoRun {
     public void initializeArray(){
         for(int i = 0; i<4; i++)
             item[i] = new ItemStruct(c, r,-200, -200);   // null
+    }
+    private boolean testCollision(){
+        TakoNode temp = tako.next;
+        while(temp!=null){
+            if( tako.x==temp.x && tako.y==temp.y){ return true; }
+            temp = temp.next;
+        }
+        return false;
     }
 }

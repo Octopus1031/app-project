@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                             yaya = new CountYaya(context, rel, takoIm, item);
                             grass = new CountGrass(context, rel, takoIm, item);
                             nian = new CountNian(context, rel, takoIm, item);
-                            ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass, fish, nian, item);
+                            ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass, fish, nian, item, count);
 
                             count.start("easy");
                             ctr.start();
@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     })
                     .show();
-
             }
         };
         ruleB.setOnClickListener(bslRule);

@@ -11,6 +11,7 @@ public class TakoNode {
     RelativeLayout r;
     ImageView im;       //self
     TakoNode pre, next;
+    MainActivity.Direction preDirection;
     ItemStruct[] item;
 
     TakoNode(Context c, RelativeLayout r){      //for small
@@ -82,6 +83,22 @@ public class TakoNode {
     }
 
     public void bigMove(MainActivity.Direction direction){          //only for big
+        switch(direction) {
+            case UP:
+                if(preDirection== MainActivity.Direction.DOWN) { direction= MainActivity.Direction.DOWN;}
+                break;
+            case DOWN:
+                if(preDirection== MainActivity.Direction.UP) { direction= MainActivity.Direction.UP;}
+                break;
+            case LEFT:
+                if(preDirection== MainActivity.Direction.RIGHT) { direction= MainActivity.Direction.RIGHT;}
+                break;
+            case RIGHT:
+                if(preDirection== MainActivity.Direction.LEFT) { direction= MainActivity.Direction.LEFT;}
+                break;
+            case STOP:
+                break;
+        }
         switch(direction){
             case UP:
                 y -= 100;
@@ -111,10 +128,12 @@ public class TakoNode {
                 break;
 
         }
+        im.bringToFront();
+        preDirection = direction;
     }
 
     public TakoNode delLittleTako(){//刪掉最後一個node
-        this.im.setImageDrawable(null);//   好像會刪到第一個小章魚
+        im.setImageDrawable(null);//   好像會刪到第一個小章魚
         pre.next = null;//倒數第二個.next = null
         TakoNode temp = pre;
         pre = null;//最後一個.pre = null

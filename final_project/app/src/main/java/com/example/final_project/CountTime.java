@@ -16,7 +16,7 @@ public class CountTime {
         this.fish = fish;
     }
     public void start(String mode){
-        btn.setText("END");
+        btn.setText("RESTART");
         switch(mode){
             case "easy":
                 time = 40000;//10000;
@@ -44,6 +44,7 @@ public class CountTime {
                 txt.setText("遊戲結束!!");
                 txt.setTextSize(40);
                 btn.setText("RESET");
+                timer.cancel();
             }
         }.start();
     }
