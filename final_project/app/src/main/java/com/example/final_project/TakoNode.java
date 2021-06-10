@@ -69,7 +69,7 @@ public class TakoNode {
     littleMove後先讓大章魚跑才把小章魚圖片的xy設置下去
      */
     public void show(){          //only for head.next
-        im.setImageResource(R.drawable.salmon);
+        im.setImageResource(R.drawable.littletako);
         RelativeLayout.LayoutParams par = new RelativeLayout.LayoutParams(100, 100);
         r.addView(im, par);
         im.setX(x);
@@ -137,6 +137,7 @@ public class TakoNode {
             item[i].im.setImageDrawable(null);
         }
     }
+
 
 
 }
