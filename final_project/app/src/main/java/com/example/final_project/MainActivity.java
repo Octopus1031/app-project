@@ -77,13 +77,20 @@ public class MainActivity extends AppCompatActivity {
                             grass = new CountGrass(context, rel, takoIm, item);
                             nian = new CountNian(context, rel, takoIm, item);
                             ctr = new CountTakoRun(context, rel, Direction.LEFT, tako, yaya, scoreT, grass, fish, nian, item, count);
-
+                            btnU.setEnabled(true);
+                            btnD.setEnabled(true);
+                            btnL.setEnabled(true);
+                            btnR.setEnabled(true);
                             count.start("easy");
                             ctr.start();
                         }
                         else{
                             count.end();
                             ctr.end();
+                            btnU.setEnabled(false);
+                            btnD.setEnabled(false);
+                            btnL.setEnabled(false);
+                            btnR.setEnabled(false);
                         }
                     }
                 };
@@ -99,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
         btnD.setOnClickListener(v -> ctr.direction = Direction.DOWN);
         btnL.setOnClickListener(v -> ctr.direction = Direction.LEFT);
         btnR.setOnClickListener(v -> ctr.direction = Direction.RIGHT);
+
+        btnU.setEnabled(false);
+        btnD.setEnabled(false);
+        btnL.setEnabled(false);
+        btnR.setEnabled(false);
 
         Button ruleB = findViewById(R.id.rule);
         Button.OnClickListener bslRule = new Button.OnClickListener(){
